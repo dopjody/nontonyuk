@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Search, Bell, Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -41,8 +42,13 @@ export default function Navbar() {
                 <div className="flex items-center gap-4 text-white">
                     <Search className="w-5 h-5 cursor-pointer hover:text-gray-300" />
                     <Bell className="w-5 h-5 cursor-pointer hover:text-gray-300" />
-                    <div className="w-8 h-8 rounded overflow-hidden cursor-pointer">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="Profile" />
+                    <div className="w-8 h-8 rounded overflow-hidden cursor-pointer relative" style={{ minWidth: '32px', minHeight: '32px', width: '32px', height: '32px' }}>
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+                            alt="Profile"
+                            className="object-cover w-full h-full"
+                            style={{ width: '100%', height: '100%' }}
+                        />
                     </div>
                     <div className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                         {isMobileMenuOpen ? <X /> : <Menu />}
