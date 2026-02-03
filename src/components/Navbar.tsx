@@ -60,7 +60,7 @@ export default function Navbar() {
                     {/* Netflix Logo Avatar */}
                     <div className="w-8 h-8 rounded overflow-hidden cursor-pointer relative">
                         <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                            src="/n-logo.png"
                             alt="Profile"
                             className="object-contain w-full h-full p-1 bg-black border border-white/20 rounded"
                         />

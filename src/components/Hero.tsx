@@ -31,7 +31,7 @@ export default function Hero({ movie }: HeroProps) {
                 <div className="absolute inset-0 bg-gradient-to-r from-[#141414] via-transparent to-transparent"></div>
             </div>
 
-            <div className="absolute top-[30%] md:top-[40%] ml-4 md:ml-12 w-[90%] md:w-[40%] text-white z-10 transition-all">
+            <div className="absolute top-[30%] md:top-[40%] ml-4 md:ml-12 w-[90%] md:w-[40%] text-white z-20 transition-all">
                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-black drop-shadow-xl mb-4">
                     {title}
                 </h1>
