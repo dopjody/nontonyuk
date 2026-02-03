@@ -41,15 +41,17 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex items-center gap-4 text-white">
-                    <div className={`flex items-center border border-white/30 bg-black/50 rounded-sm px-2 transition-all duration-300 ${isSearchOpen ? 'w-60' : 'w-8 bg-transparent border-none'}`}>
+                    {/* Search Bar - Improved styling */}
+                    <div className={`flex items-center bg-black/80 border border-white/20 rounded-full px-3 py-1 transition-all duration-300 ${isSearchOpen ? 'w-48 md:w-64 opacity-100 ring-2 ring-white/20' : 'w-8 bg-transparent border-none opacity-80'}`}>
                         <Search
-                            className="w-5 h-5 cursor-pointer hover:text-gray-300"
+                            className={`w-5 h-5 cursor-pointer hover:text-white transition ${isSearchOpen ? 'text-white' : 'text-gray-300'}`}
                             onClick={() => setIsSearchOpen(!isSearchOpen)}
                         />
                         <input
                             type="text"
                             placeholder="Titles, people, genres"
-                            className={`bg-transparent border-none focus:outline-none text-sm ml-2 text-white transition-all duration-300 ${isSearchOpen ? 'w-full opacity-100' : 'w-0 opacity-0'}`}
+                            className={`bg-transparent border-none focus:outline-none text-sm ml-2 text-white placeholder-gray-400 transition-all duration-300 ${isSearchOpen ? 'w-full opacity-100 scale-100' : 'w-0 opacity-0 scale-95'}`}
+                            style={{ appearance: 'none' }}
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
@@ -66,20 +68,20 @@ export default function Navbar() {
                         />
                     </div>
 
-                    <div className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-                        {isMobileMenuOpen ? <X /> : <Menu />}
+                    <div className="md:hidden cursor-pointer" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                        {isMobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
                     </div>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu - Fixed Position (Right aligned) */}
             {isMobileMenuOpen && (
-                <div className="md:hidden bg-[#141414] absolute top-16 right-0 left-0 flex flex-col items-center py-4 gap-4 text-gray-300 border-t border-gray-800">
-                    <Link href="/" className="hover:text-white">Home</Link>
-                    <Link href="/series" className="hover:text-white">Series</Link>
-                    <Link href="/movies" className="hover:text-white">Movies</Link>
-                    <Link href="/new" className="hover:text-white">New & Popular</Link>
-                    <Link href="/list" className="hover:text-white">My List</Link>
+                <div className="md:hidden fixed top-16 right-4 w-48 bg-[#141414]/95 backdrop-blur-md border border-gray-800 rounded-md shadow-2xl flex flex-col py-2 z-50">
+                    <Link href="/" className="px-4 py-3 hover:bg-white/10 hover:text-white text-gray-300 text-sm transition font-medium">Home</Link>
+                    <Link href="/series" className="px-4 py-3 hover:bg-white/10 hover:text-white text-gray-300 text-sm transition font-medium">Series</Link>
+                    <Link href="/movies" className="px-4 py-3 hover:bg-white/10 hover:text-white text-gray-300 text-sm transition font-medium">Movies</Link>
+                    <Link href="/new" className="px-4 py-3 hover:bg-white/10 hover:text-white text-gray-300 text-sm transition font-medium">New & Popular</Link>
+                    <Link href="/list" className="px-4 py-3 hover:bg-white/10 hover:text-white text-gray-300 text-sm transition font-medium">My List</Link>
                 </div>
             )}
         </nav>
