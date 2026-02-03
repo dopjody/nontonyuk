@@ -22,8 +22,10 @@ interface MovieData {
     genre: string;
 }
 
-export default function Watch({ params }: { params: { id: string } }) {
-    const { id } = params;
+import { use } from 'react';
+
+export default function Watch({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = use(params);
     const [movie, setMovie] = useState<MovieData | null>(null);
     const [loading, setLoading] = useState(true);
     const [selectedSource, setSelectedSource] = useState(0);
