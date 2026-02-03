@@ -1,0 +1,227 @@
+{
+  "code": 0,
+  "message": "ok",
+  "data": {
+    "subject": {
+      "subjectId": "2310728721344383704",
+      "subjectType": 1,
+      "title": "Action",
+      "description": "Bava (Allari Naresh), Ajay (Kick Shyam), Shiva (Vaibhav) and Purush (Raju Sundaram) are thick friends. They grow up together and share everything in life. While Bava is an easy going person, Ajay and Shiva are seen as more mature and responsible people. Purush is a comical flirt. Ajay is all set to marry his sweetheart Shruthi (Sheena), so the four friends decide to celebrate the last few days of Ajay's bachelorhood in Goa. While travelling to the beach paradise, Bava comes across Geetha (Neelam) and instantly falls for her. He starts trying to woo her but is not too successful. Once they reach Goa, the four friends decid to get drunk and have fun. They wake up with a heavy Hangover and all hell breaks loose when they discover that a member is missing from their gang. As the wedding date approaches, they desperately search for the missing guy. Will they succeed in their efforts? That forms the rest of the story.",
+      "releaseDate": "2013-06-21",
+      "duration": 8760,
+      "genre": "Comedy",
+      "cover": {
+        "url": "https://pbcdnw.aoneroom.com/image/2023/08/11/56fb3926b8daa7f7437f163370618f69.jpg",
+        "width": 800,
+        "height": 1267,
+        "size": 183728,
+        "format": "jpg",
+        "thumbnail": "",
+        "blurHash": "eRK,vN%0^@ni$~~eoJxnxZRR-hWDNLbXRQNLShRRsmkCS6t6R%WB%K",
+        "gif": null,
+        "avgHueLight": "#997c4e",
+        "avgHueDark": "#665334",
+        "id": "0"
+      },
+      "countryName": "India",
+      "imdbRatingValue": "3.4",
+      "subtitles": "",
+      "ops": "",
+      "hasResource": true,
+      "trailer": {
+        "videoAddress": {
+          "videoId": "2454843909420237392",
+          "definition": "",
+          "url": "https://macdn.aoneroom.com/media/vone/2023/08/11/92aed023a525f293704639860151cd55-sd.mp4",
+          "duration": 45,
+          "width": 848,
+          "height": 476,
+          "size": 3050190,
+          "fps": 0,
+          "bitrate": 0,
+          "type": 0
+        },
+        "cover": {
+          "url": "https://pbcdnw.aoneroom.com/image/2023/08/15/aad5b0ea2518e1b77010b0ca0c224892.webp",
+          "width": 854,
+          "height": 480,
+          "size": 37800,
+          "format": "webp",
+          "thumbnail": "",
+          "blurHash": "eOE:9?RO9ERhp0?ZbEX9Rjae00t8xubJe,N1s;i^ofozD$W-tRoebF",
+          "gif": null,
+          "avgHueLight": "#656c68",
+          "avgHueDark": "#606663",
+          "id": "0"
+        }
+      },
+      "detailPath": "action-aTRx9X2aHK2",
+      "staffList": [],
+      "appointmentCnt": 0,
+      "appointmentDate": "",
+      "corner": "",
+      "imdbRatingCount": 118,
+      "stills": null,
+      "postTitle": "Trailer-Action"
+    },
+    "stars": [
+      {
+        "staffId": "8882147950097484064",
+        "staffType": 2,
+        "name": "Anil Sunkara",
+        "character": "Director",
+        "avatarUrl": "",
+        "detailPath": "anil-sunkara-wQWOLBzk8Aa"
+      },
+      {
+        "staffId": "4316694560593825368",
+        "staffType": 1,
+        "name": "Allari Naresh",
+        "character": "Bala Vardhan",
+        "avatarUrl": "",
+        "detailPath": "allari-naresh-q9okJsqvS85"
+      },
+      {
+        "staffId": "4316694560593825368",
+        "staffType": 1,
+        "name": "Allari Naresh",
+        "character": "Bava",
+        "avatarUrl": "",
+        "detailPath": "allari-naresh-q9okJsqvS85"
+      },
+      {
+        "staffId": "5137869859941926520",
+        "staffType": 1,
+        "name": "Shaam",
+        "character": "Ajay",
+        "avatarUrl": "https://pbcdnw.aoneroom.com/image/2023/03/29/65e24406a55eaa21cb05051520862568.jpg",
+        "detailPath": "shaam-kKAIJ6Uux76"
+      },
+      {
+        "staffId": "5684968446283370488",
+        "staffType": 1,
+        "name": "Vaibhav Reddy",
+        "character": "Shiva",
+        "avatarUrl": "https://pbcdnw.aoneroom.com/image/2023/04/28/480d943d01a58ebfe9265ee39989d079.jpg",
+        "detailPath": "vaibhav-reddy-YqeZuwndXL6"
+      },
+      {
+        "staffId": "476335574905933232",
+        "staffType": 1,
+        "name": "Raju Sundaram",
+        "character": "Purushottam",
+        "avatarUrl": "https://pbcdnw.aoneroom.com/image/2023/04/28/11758e4f7964283b8360a9d7064166fd.jpg",
+        "detailPath": "raju-sundaram-K7OlPUyCbz"
+      },
+      {
+        "staffId": "476335574905933232",
+        "staffType": 1,
+        "name": "Raju Sundaram",
+        "character": "Purush",
+        "avatarUrl": "https://pbcdnw.aoneroom.com/image/2023/04/28/11758e4f7964283b8360a9d7064166fd.jpg",
+        "detailPath": "raju-sundaram-K7OlPUyCbz"
+      },
+      {
+        "staffId": "7067256872537317016",
+        "staffType": 1,
+        "name": "Sneha Ullal",
+        "character": "Sameera",
+        "avatarUrl": "https://pbcdnw.aoneroom.com/image/2023/04/28/229fc9b2ef76bf2b131a8738ad8f5e49.jpg",
+        "detailPath": "sneha-ullal-w6REHqU64q8"
+      },
+      {
+        "staffId": "425195255428959832",
+        "staffType": 1,
+        "name": "Sudeep",
+        "character": "(Guest Appearance)",
+        "avatarUrl": "https://pbcdnw.aoneroom.com/image/2022/10/14/b213e760e63fc4ac9055787b706ba8d9.jpg",
+        "detailPath": "sudeep-IIZYDUIopv"
+      },
+      {
+        "staffId": "765184041947647576",
+        "staffType": 1,
+        "name": "Brahmanandam",
+        "character": "Matrix mama",
+        "avatarUrl": "https://pbcdnw.aoneroom.com/image/2022/10/14/140b0091f49e2e630413436a0d3ba372.jpg",
+        "detailPath": "brahmanandam-CZprU9aywU"
+      },
+      {
+        "staffId": "9037797779652968800",
+        "staffType": 1,
+        "name": "Neelam Upadhyaya",
+        "character": "Geetha",
+        "avatarUrl": "",
+        "detailPath": "neelam-upadhyaya-yDR5W80dDLa"
+      },
+      {
+        "staffId": "5450697306565661136",
+        "staffType": 1,
+        "name": "Kamna Jethmalani",
+        "character": "Anitha",
+        "avatarUrl": "",
+        "detailPath": "kamna-jethmalani-yBcdxJAfEu6"
+      },
+      {
+        "staffId": "260500908721718856",
+        "staffType": 1,
+        "name": "Ritu Barmecha",
+        "character": "Sandhya",
+        "avatarUrl": "",
+        "detailPath": "ritu-barmecha-u3O76A06fj"
+      },
+      {
+        "staffId": "7875131085519487656",
+        "staffType": 3,
+        "name": "V. Jayashankarr",
+        "character": "Writer",
+        "avatarUrl": "",
+        "detailPath": "v-jayashankarr-4QXitZobKn9"
+      },
+      {
+        "staffId": "2829310050911551824",
+        "staffType": 3,
+        "name": "Upendra Madhav",
+        "character": "Writer",
+        "avatarUrl": "",
+        "detailPath": "upendra-madhav-ODvkt4Kg0n3"
+      },
+      {
+        "staffId": "8882147950097484064",
+        "staffType": 3,
+        "name": "Anil Sunkara",
+        "character": "Writer",
+        "avatarUrl": "",
+        "detailPath": "anil-sunkara-wQWOLBzk8Aa"
+      }
+    ],
+    "resource": {
+      "seasons": [
+        {
+          "se": 0,
+          "maxEp": 0,
+          "allEp": "",
+          "resolutions": [
+            {
+              "resolution": 720,
+              "epNum": 1
+            }
+          ]
+        }
+      ],
+      "source": "kickasstorrents.to",
+      "uploadBy": "Bayyinah_sana"
+    },
+    "metadata": {
+      "title": "Action",
+      "description": "Bava (Allari Naresh), Ajay (Kick Shyam), Shiva (Vaibhav) and Purush (Raju Sundaram) are thick friends. They grow up together and share everything in life. While Bava is an easy going person, Ajay and Shiva are seen as more mature and responsible people. Purush is a comical flirt. Ajay is all set to marry his sweetheart Shruthi (Sheena), so the four friends decide to celebrate the last few days of Ajay's bachelorhood in Goa. While travelling to the beach paradise, Bava comes across Geetha (Neelam) and instantly falls for her. He starts trying to woo her but is not too successful. Once they reach Goa, the four friends decid to get drunk and have fun. They wake up with a heavy Hangover and all hell breaks loose when they discover that a member is missing from their gang. As the wedding date approaches, they desperately search for the missing guy. Will they succeed in their efforts? That forms the rest of the story.",
+      "keyWords": "",
+      "image": "https://pbcdnw.aoneroom.com/image/2023/08/11/56fb3926b8daa7f7437f163370618f69.jpg",
+      "url": "h5.aoneroom.com/wefeed-h5-bff/web/subject/detail?subjectId=2310728721344383704",
+      "referer": "https://h5.aoneroom.com/"
+    },
+    "url": "h5.aoneroom.com/wefeed-h5-bff/web/subject/detail?subjectId=2310728721344383704",
+    "referer": "https://h5.aoneroom.com/",
+    "isForbid": false,
+    "watchTimeLimit": 15
+  }
+}

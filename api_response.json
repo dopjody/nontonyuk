@@ -1,0 +1,125 @@
+{
+  "code": 0,
+  "message": "ok",
+  "data": [
+    {
+      "channelType": "CHANNEL_WEB",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=100&n=web_apk_cafe",
+      "versionCode": "50020080",
+      "versionName": "3.0.11.0106.web_apk_cafe"
+    },
+    {
+      "channelType": "CHANNEL_WEB",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=100&n=itel_shop_qrcode",
+      "versionCode": "50020080",
+      "versionName": "3.0.11.0113.itel_shop_qrcode"
+    },
+    {
+      "channelType": "CHANNEL_WEB",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=100&n=web_socialmedia",
+      "versionCode": "50020080",
+      "versionName": "3.0.11.0106.web_socialmedia"
+    },
+    {
+      "channelType": "CHANNEL_WEB",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=100&n=web_uptodown",
+      "versionCode": "50020080",
+      "versionName": "3.0.11.0106.web_uptodown"
+    },
+    {
+      "channelType": "CHANNEL_WEB",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=100&n=web_daforums_com",
+      "versionCode": "50020080",
+      "versionName": "3.0.11.0106.web_daforums_com"
+    },
+    {
+      "channelType": "CHANNEL_WEB",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=100&n=web_webcatalog_io",
+      "versionCode": "50020080",
+      "versionName": "3.0.11.0106.web_webcatalog_io"
+    },
+    {
+      "channelType": "CHANNEL_WEB",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=100&n=web_playmods_net",
+      "versionCode": "50020080",
+      "versionName": "3.0.11.0106.web_playmods_net"
+    },
+    {
+      "channelType": "CHANNEL_WEB",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=100&n=web_happymod_ph",
+      "versionCode": "50020080",
+      "versionName": "3.0.11.0106.web_happymod_ph"
+    },
+    {
+      "channelType": "CHANNEL_WEB",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=100&n=web_getjar_com",
+      "versionCode": "50020080",
+      "versionName": "3.0.11.0106.web_getjar_com"
+    },
+    {
+      "channelType": "CHANNEL_WEB",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=100&n=web_filerox",
+      "versionCode": "50020080",
+      "versionName": "3.0.11.0106.web_filerox"
+    },
+    {
+      "channelType": "CHANNEL_WEB",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=100&n=web_apk_store_org",
+      "versionCode": "50020080",
+      "versionName": "3.0.11.0106.web_apk_store_org"
+    },
+    {
+      "channelType": "CHANNEL_PLAMSTORE",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=3",
+      "versionCode": "50020068",
+      "versionName": "3.0.09.1014.02"
+    },
+    {
+      "channelType": "CHANNEL_OWN",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=1",
+      "versionCode": "50020080",
+      "versionName": "3.0.11.1230.03"
+    },
+    {
+      "channelType": "CHANNEL_WEB",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=100&n=web_apkmirror",
+      "versionCode": "50020075",
+      "versionName": "3.0.10.1110.web_apkmirror"
+    },
+    {
+      "channelType": "CHANNEL_WEB",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=100&n=web_download_cnet",
+      "versionCode": "50020080",
+      "versionName": "3.0.11.0106.web_download_cnet"
+    },
+    {
+      "channelType": "CHANNEL_WEB",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=100&n=web_softonic",
+      "versionCode": "50020075",
+      "versionName": "3.0.10.1110.web_softonic"
+    },
+    {
+      "channelType": "CHANNEL_WEB",
+      "pkgName": "com.community.oneroom",
+      "url": "https://h5.aoneroom.com/pkg/redirect?a=moviebox&p=com.community.oneroom&c=100&n=web_liteapks",
+      "versionCode": "50020080",
+      "versionName": "3.0.11.0106.web_liteapks"
+    }
+  ]
+}
