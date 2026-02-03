@@ -1,103 +1,219 @@
+'use client';
 
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Play, Server, RefreshCw } from 'lucide-react';
 import Link from 'next/link';
-import { supabase } from '@/lib/supabase';
-import { getMovieBoxVideo } from '@/lib/moviebox';
+import { useState, useEffect } from 'react';
 
-// Force dynamic rendering because we rely on search params/external data
-export const dynamic = 'force-dynamic';
+// Video embed sources configuration
+const EMBED_SOURCES = [
+    { name: 'VidSrc Pro', url: (id: string) => `https://vidsrc.pro/embed/movie/${id}` },
+    { name: 'VidSrc ME', url: (id: string) => `https://vidsrc.me/embed/movie?tmdb=${id}` },
+    { name: 'AutoEmbed', url: (id: string) => `https://player.autoembed.cc/embed/movie/${id}` },
+    { name: 'SuperEmbed', url: (id: string) => `https://multiembed.mov/directstream.php?video_id=${id}&tmdb=1` },
+    { name: 'VidSrc XYZ', url: (id: string) => `https://vidsrc.xyz/embed/movie/${id}` },
+];
 
-export default async function Watch({ params }: { params: { id: string } }) {
-    const id = params.id;
+interface MovieData {
+    id: string;
+    title: string;
+    description: string;
+    cover: string;
+    release_date: string;
+    genre: string;
+}
 
-    // 1. Fetch metadata from Supabase
-    const { data: movie } = await supabase
-        .from('content')
-        .select('*')
-        .eq('id', id)
-        .single();
+export default function Watch({ params }: { params: { id: string } }) {
+    const { id } = params;
+    const [movie, setMovie] = useState<MovieData | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [selectedSource, setSelectedSource] = useState(0);
+    const [showSourceSelector, setShowSourceSelector] = useState(false);
+    const [iframeLoaded, setIframeLoaded] = useState(false);
+    const [iframeError, setIframeError] = useState(false);
 
-    if (!movie) {
+    // Fetch movie data
+    useEffect(() => {
+        const fetchMovie = async () => {
+            try {
+                // Try to fetch from Supabase via API
+                const response = await fetch(`/api/movie/${id}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setMovie(data);
+                } else {
+                    // Fallback: Create placeholder data
+                    setMovie({
+                        id,
+                        title: `Movie ${id}`,
+                        description: 'Loading movie information...',
+                        cover: '/placeholder-movie.jpg',
+                        release_date: '2024',
+                        genre: 'Movie'
+                    });
+                }
+            } catch (error) {
+                console.error('Error fetching movie:', error);
+                setMovie({
+                    id,
+                    title: `Movie ${id}`,
+                    description: 'Movie information unavailable',
+                    cover: '/placeholder-movie.jpg',
+                    release_date: '2024',
+                    genre: 'Movie'
+                });
+            }
+            setLoading(false);
+        };
+        fetchMovie();
+    }, [id]);
+
+    // Handle iframe load events
+    const handleIframeLoad = () => {
+        setIframeLoaded(true);
+        setIframeError(false);
+    };
+
+    // Try next source on error
+    const tryNextSource = () => {
+        if (selectedSource < EMBED_SOURCES.length - 1) {
+            setSelectedSource(selectedSource + 1);
+            setIframeLoaded(false);
+            setIframeError(false);
+        }
+    };
+
+    // Generate embed URL
+    const embedUrl = EMBED_SOURCES[selectedSource].url(id);
+
+    if (loading) {
         return (
-            <div className="min-h-screen bg-[#141414] flex flex-col items-center justify-center text-white gap-4">
-                <h1>Content not found</h1>
-                <Link href="/" className="text-red-600 hover:underline">Back to Home</Link>
+            <div className="min-h-screen bg-[#141414] flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-600"></div>
             </div>
         );
     }
 
-    // 2. Fetch video source from MovieBox
-    const videoSource = await getMovieBoxVideo(id);
-
     return (
         <div className="min-h-screen bg-[#141414] text-white flex flex-col">
-            {/* Back Button */}
-            <div className="absolute top-4 left-4 z-50">
-                <Link href="/" className="flex items-center gap-2 text-white/70 hover:text-white bg-black/50 px-4 py-2 rounded transition">
-                    <ArrowLeft className="w-6 h-6" />
+            {/* Header */}
+            <div className="absolute top-4 left-4 z-50 flex items-center gap-4">
+                <Link href="/" className="flex items-center gap-2 text-white/70 hover:text-white bg-black/60 backdrop-blur px-4 py-2 rounded-lg transition">
+                    <ArrowLeft className="w-5 h-5" />
                     Back
                 </Link>
+
+                {/* Source Selector */}
+                <div className="relative">
+                    <button
+                        onClick={() => setShowSourceSelector(!showSourceSelector)}
+                        className="flex items-center gap-2 text-white/70 hover:text-white bg-black/60 backdrop-blur px-4 py-2 rounded-lg transition"
+                    >
+                        <Server className="w-4 h-4" />
+                        {EMBED_SOURCES[selectedSource].name}
+                    </button>
+
+                    {showSourceSelector && (
+                        <div className="absolute top-12 left-0 bg-black/90 backdrop-blur rounded-lg overflow-hidden shadow-xl border border-white/10 min-w-[200px]">
+                            {EMBED_SOURCES.map((source, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => {
+                                        setSelectedSource(index);
+                                        setShowSourceSelector(false);
+                                        setIframeLoaded(false);
+                                        setIframeError(false);
+                                    }}
+                                    className={`w-full text-left px-4 py-3 hover:bg-white/10 transition flex items-center gap-3 ${selectedSource === index ? 'bg-red-600 text-white' : 'text-white/80'
+                                        }`}
+                                >
+                                    <Server className="w-4 h-4" />
+                                    {source.name}
+                                </button>
+                            ))}
+                        </div>
+                    )}
+                </div>
             </div>
 
             {/* Main Player Area */}
             <div className="w-full h-screen flex flex-col relative bg-black">
-                {videoSource ? (
-                    <div className="w-full h-full flex items-center justify-center">
-                        {/* Standard Video Player */}
-                        {/* Note: Many HLS streams need hls.js for non-Safari browsers. 
-                     For simplicity we use a basic video tag here. 
-                     If the source is .m3u8, Chrome won't play it natively without HLS.js.
-                     Usually MovieBox provides detailed .mp4 or .m3u8.
-                  */}
-                        <video
-                            controls
-                            autoPlay
-                            className="w-full h-full max-h-screen object-contain"
-                            poster={movie.cover}
-                        >
-                            <source src={videoSource.url} type="application/x-mpegURL" />
-                            <source src={videoSource.url} type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
-
-                        {/* Overlay Debug Info (Removable) */}
-                        <div className="absolute bottom-20 left-10 bg-black/50 p-2 text-xs text-gray-500 rounded">
-                            Source: {videoSource.url.substring(0, 30)}...
+                {/* Loading Overlay */}
+                {!iframeLoaded && !iframeError && (
+                    <div className="absolute inset-0 z-10 flex items-center justify-center bg-black">
+                        <div className="text-center">
+                            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-600 mx-auto mb-4"></div>
+                            <p className="text-gray-400">Loading {EMBED_SOURCES[selectedSource].name}...</p>
                         </div>
                     </div>
-                ) : (
-                    // Fallback if no source found
-                    <div className="w-full h-full flex flex-col items-center justify-center">
-                        <div className="absolute inset-0 opacity-20">
-                            <img src={movie.cover} alt={movie.title} className="w-full h-full object-cover" />
-                        </div>
-                        <div className="z-10 text-center p-8 bg-black/80 rounded-lg max-w-2xl">
-                            <h1 className="text-4xl font-bold mb-4">{movie.title}</h1>
-                            <p className="text-red-500 text-xl font-bold mb-4">Stream Not Available</p>
-                            <p className="text-gray-400">
-                                Could not extract a valid video URL from the source. <br />
-                                This might be because the content is premium or the source is protected.
-                            </p>
-                            <button className="mt-8 bg-white text-black px-6 py-2 rounded hover:bg-gray-200 font-bold">
-                                <Link href="/">Back to Browse</Link>
+                )}
+
+                {/* Error State */}
+                {iframeError && (
+                    <div className="absolute inset-0 z-20 flex items-center justify-center bg-black">
+                        <div className="text-center p-8">
+                            <p className="text-red-500 text-xl mb-4">Server not responding</p>
+                            <button
+                                onClick={tryNextSource}
+                                className="flex items-center gap-2 bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg transition mx-auto"
+                            >
+                                <RefreshCw className="w-5 h-5" />
+                                Try Next Server
                             </button>
                         </div>
                     </div>
                 )}
+
+                {/* Video Embed iframe */}
+                <iframe
+                    key={selectedSource}
+                    src={embedUrl}
+                    className="w-full h-full border-0"
+                    allowFullScreen
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    onLoad={handleIframeLoad}
+                    onError={() => setIframeError(true)}
+                />
             </div>
 
-            {/* Details Section (Below fold) */}
-            <div className="p-8 md:p-12 max-w-4xl mx-auto w-full">
-                <h1 className="text-3xl font-bold mb-4">{movie.title}</h1>
-                <div className="flex gap-4 text-sm text-gray-400 mb-6">
-                    <span>{movie.release_date || '2024'}</span>
-                    <span className="border border-gray-600 px-1 rounded text-xs flex items-center">HD</span>
-                    <span>{movie.genre}</span>
+            {/* Movie Info Section (Below Player) */}
+            {movie && (
+                <div className="p-6 md:p-12 max-w-5xl mx-auto w-full">
+                    <div className="flex flex-col md:flex-row gap-8">
+                        {/* Poster */}
+                        {movie.cover && (
+                            <div className="flex-shrink-0">
+                                <img
+                                    src={movie.cover}
+                                    alt={movie.title}
+                                    className="w-48 rounded-lg shadow-xl"
+                                />
+                            </div>
+                        )}
+
+                        {/* Details */}
+                        <div className="flex-1">
+                            <h1 className="text-3xl md:text-4xl font-bold mb-4">{movie.title}</h1>
+                            <div className="flex flex-wrap gap-3 text-sm text-gray-400 mb-6">
+                                <span className="bg-white/10 px-3 py-1 rounded">{movie.release_date || '2024'}</span>
+                                <span className="bg-green-600/20 text-green-500 px-3 py-1 rounded border border-green-600/50">HD</span>
+                                {movie.genre && <span className="bg-white/10 px-3 py-1 rounded">{movie.genre}</span>}
+                            </div>
+                            <p className="text-gray-300 leading-relaxed text-lg">
+                                {movie.description}
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Server Info */}
+                    <div className="mt-8 pt-6 border-t border-white/10">
+                        <p className="text-sm text-gray-500">
+                            Currently streaming from: <span className="text-white">{EMBED_SOURCES[selectedSource].name}</span>
+                            <span className="mx-2">•</span>
+                            If playback doesn't work, try switching to a different server using the button above.
+                        </p>
+                    </div>
                 </div>
-                <p className="text-lg text-gray-300 leading-relaxed">
-                    {movie.description}
-                </p>
-            </div>
+            )}
         </div>
     );
 }
