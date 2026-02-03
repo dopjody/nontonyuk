@@ -1,6 +1,7 @@
 'use client';
 
 import { Play, Plus, ThumbsUp, ChevronDown } from 'lucide-react';
+import Link from 'next/link';
 
 interface MovieCardProps {
     data: any;
@@ -26,9 +27,9 @@ export default function MovieCard({ data }: MovieCardProps) {
                 />
                 <div className="z-10 bg-[#181818] p-2 lg:p-4 absolute w-full shadow-lg rounded-b-md">
                     <div className="flex items-center gap-3">
-                        <div className="cursor-pointer w-6 h-6 lg:w-10 lg:h-10 bg-white rounded-full flex justify-center items-center hover:bg-neutral-300 transition">
+                        <Link href={`/watch/${data.id}`} className="cursor-pointer w-6 h-6 lg:w-10 lg:h-10 bg-white rounded-full flex justify-center items-center hover:bg-neutral-300 transition">
                             <Play className="text-black w-3 h-3 lg:w-6 lg:h-6 fill-black" />
-                        </div>
+                        </Link>
                         <div className="cursor-pointer w-6 h-6 lg:w-10 lg:h-10 border-2 border-gray-400 rounded-full flex justify-center items-center hover:border-white text-white">
                             <Plus className="w-3 h-3 lg:w-6 lg:h-6" />
                         </div>

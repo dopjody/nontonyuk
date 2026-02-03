@@ -3,11 +3,12 @@
 import { useState, useEffect } from 'react';
 import { Search, Bell, Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
         const handleScroll = () => {
@@ -40,16 +41,31 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex items-center gap-4 text-white">
-                    <Search className="w-5 h-5 cursor-pointer hover:text-gray-300" />
-                    <Bell className="w-5 h-5 cursor-pointer hover:text-gray-300" />
-                    <div className="w-8 h-8 rounded overflow-hidden cursor-pointer relative" style={{ minWidth: '32px', minHeight: '32px', width: '32px', height: '32px' }}>
-                        <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
-                            alt="Profile"
-                            className="object-cover w-full h-full"
-                            style={{ width: '100%', height: '100%' }}
+                    <div className={`flex items-center border border-white/30 bg-black/50 rounded-sm px-2 transition-all duration-300 ${isSearchOpen ? 'w-60' : 'w-8 bg-transparent border-none'}`}>
+                        <Search
+                            className="w-5 h-5 cursor-pointer hover:text-gray-300"
+                            onClick={() => setIsSearchOpen(!isSearchOpen)}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Titles, people, genres"
+                            className={`bg-transparent border-none focus:outline-none text-sm ml-2 text-white transition-all duration-300 ${isSearchOpen ? 'w-full opacity-100' : 'w-0 opacity-0'}`}
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
                         />
                     </div>
+
+                    <Bell className="w-5 h-5 cursor-pointer hover:text-gray-300" />
+
+                    {/* Netflix Logo Avatar */}
+                    <div className="w-8 h-8 rounded overflow-hidden cursor-pointer relative">
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                            alt="Profile"
+                            className="object-contain w-full h-full p-1 bg-black border border-white/20 rounded"
+                        />
+                    </div>
+
                     <div className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                         {isMobileMenuOpen ? <X /> : <Menu />}
                     </div>

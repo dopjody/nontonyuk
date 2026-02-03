@@ -1,7 +1,11 @@
+'use client';
+
 import { Play, Info } from 'lucide-react';
+import Link from 'next/link';
 
 interface HeroProps {
     movie?: {
+        id: string;
         title: string;
         description: string;
         cover: string;
@@ -10,6 +14,7 @@ interface HeroProps {
 
 export default function Hero({ movie }: HeroProps) {
     // Fallback if no movie provided
+    const id = movie?.id || '0';
     const title = movie?.title || 'Avatar: Fire and Ash';
     const description = movie?.description || 'Jake Sully and Neytiri have formed a family and are doing everything to stay together. However, they must leave their home and explore the regions of Pandora. When an ancient threat resurfaces, Jake must fight a difficult war against the humans.';
     const image = movie?.cover || 'https://pbcdnw.aoneroom.com/image/2026/01/27/830cb82db395dad0eab79d0148041071.jpg';
@@ -35,10 +40,10 @@ export default function Hero({ movie }: HeroProps) {
                 </p>
 
                 <div className="flex flex-row gap-3 items-center">
-                    <button className="bg-white text-black px-4 md:px-8 py-2 md:py-3 rounded flex flex-row items-center hover:bg-opacity-80 transition font-bold text-sm md:text-lg">
+                    <Link href={`/watch/${id}`} className="bg-white text-black px-4 md:px-8 py-2 md:py-3 rounded flex flex-row items-center hover:bg-opacity-80 transition font-bold text-sm md:text-lg">
                         <Play className="w-4 h-4 md:w-6 md:h-6 mr-2 fill-black" />
                         Play
-                    </button>
+                    </Link>
                     <button className="bg-gray-500/70 text-white px-4 md:px-8 py-2 md:py-3 rounded flex flex-row items-center hover:bg-gray-500/50 transition font-bold text-sm md:text-lg">
                         <Info className="w-4 h-4 md:w-6 md:h-6 mr-2" />
                         More Info
